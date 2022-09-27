@@ -4,6 +4,9 @@ import path from "path";
 import Koa from 'koa'
 const app = new Koa();
 
+import {accessLogger } from "./middleware/log4j";
+app.use(accessLogger())
+
 import bodyparser from "koa-bodyparser";
 app.use(bodyparser ());
 
