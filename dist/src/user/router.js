@@ -1,3 +1,4 @@
+"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -7,9 +8,15 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-const Koa = require('koa');
-const app = new Koa();
-app.use((ctx) => __awaiter(this, void 0, void 0, function* () {
-    ctx.body = 'Hello World';
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const koa_router_1 = __importDefault(require("koa-router"));
+const router = new koa_router_1.default({
+    prefix: '/user'
+});
+router.get('/string', (ctx, next) => __awaiter(void 0, void 0, void 0, function* () {
+    ctx.body = 'user';
 }));
-app.listen(3000);
+exports.default = router;
