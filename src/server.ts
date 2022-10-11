@@ -7,8 +7,30 @@ const app = new Koa();
 import {accessLogger } from "./middleware/log4j";
 app.use(accessLogger())
 
-import bodyparser from "koa-bodyparser";
-app.use(bodyparser ());
+// import bodyparser from "koa-bodyparser";
+// app.use(bodyparser ());
+
+import koaBody from "koa-body";
+app.use(koaBody({
+    multipart: true,
+    formidable: {
+        maxFileSize: 200*1024*1024, // 设置上传文件大小最大限制，默认2M
+        keepExtensions: true, // 保持后缀名
+    }
+}));
+
+// 配置跨域
+app.use(async (ctx, next) => {
+    ctx.set('Access-Control-Allow-Origin', '*');
+    ctx.set('Access-Control-Allow-Headers', 'Content-Type, Content-Length, Authorization, Accept, X-Requested-With , yourHeaderFeild');
+    ctx.set('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
+    if(ctx.method=='OPTIONS'){
+        ctx.body = 200;
+    }else{
+        await next()
+    }
+})
+
 
 /* 使用mount与static,挂载虚拟路径给指定的静态文件 */
 import mount from 'koa-mount'
