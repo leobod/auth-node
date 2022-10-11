@@ -6,7 +6,9 @@
   "scripts": {
     "start:dev": "ts-node ./src/server.ts",
     "build:pord": "tsc",
-    "test": "jest"
+    "test": "jest",
+    "run:mysql": "ts-node ./test/mysql.test.ts",
+    "run:redirect": "ts-node ./test/redirect.test.ts"
   },
   "author": "",
   "license": "ISC",
@@ -35,6 +37,7 @@
     "koa-mount": "^4.0.0",
     "koa-router": "^12.0.0",
     "koa-static": "^5.0.0",
-    "mime-types": "^2.1.35"
+    "mime-types": "^2.1.35",
+    "mysql": "^2.18.1"
   }
 }
