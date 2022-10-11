@@ -14,6 +14,12 @@ _router.get('/hello', async (ctx)=>{   //定义路由
   ctx.body = 'hello world';
 });
 
+_router.get('/redirect', async (ctx)=>{   //定义路由
+  ctx.status = 301;
+  ctx.header.location = 'http://www.baidu.com'
+  // ctx.set('Location', 'http://www.baidu.com');
+});
+
 _router.get('/test', async (ctx)=>{   //定义路由
   throw new Error('异常')
 });
