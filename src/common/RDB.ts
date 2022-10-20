@@ -27,6 +27,8 @@ const pool = mysql.createPool(mysql_config);
 //   });
 // })
 
+// var sql = mysql.format('UPDATE posts SET modified = ? WHERE id = ?', [CURRENT_TIMESTAMP, 42]);
+
 export {
   pool
 }
