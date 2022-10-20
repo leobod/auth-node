@@ -3,3 +3,4 @@
 /logs/
 /coverage/
 /src/config/database.ts
+/package-lock.json

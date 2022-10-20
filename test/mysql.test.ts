@@ -1,19 +1,17 @@
-import mysql from "mysql";
 
-const connection = mysql.createConnection({
-  host     : '42.192.233.200',
-  user     : 'test_demo',
-  password : 'Lm4GNmsxsLeesPXD',
-  database : 'test_demo'
-});
+import { pool } from "../src/common/mysql";
 
-connection.connect();
+pool.getConnection(function(err, connection) {
+  if (err) throw err
+  connection.query('SELECT * FROM customer_login', function (error, results, fields) {
+    connection.release()
+    if (error) throw error;
+    const res = results.map(v => Object.assign({}, v));
+    console.log('The origin_data is: ', results);
+    console.log('The obj_data is: ', res)
+    pool.end()
+  });
+})
 
-connection.query('SELECT * FROM customer_login', function (error, results, fields) {
-  connection.destroy()
-  if (error) throw error;
-  const res = results.map(v => Object.assign({}, v));
-  console.log(res)
-  console.log('The solution is: ', results);
-});
+
 
