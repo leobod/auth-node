@@ -11,11 +11,11 @@ const cors = async (ctx, next) => {
   }
 }
 
-const setCors = function (app) {
+const initCors = function (app) {
   app.use(cors)
 }
 
 export {
   cors,
-  setCors
+  initCors
 }

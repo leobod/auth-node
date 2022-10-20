@@ -36,7 +36,12 @@ log4js.configure({
 const accessLogger = () => log4js.koaLogger(log4js.getLogger('access')); // 记录所有访问级别的日志
 const logger = log4js.getLogger('application');
 
+const initLogger = function (app) {
+  app.use(accessLogger())
+}
+
 export {
   accessLogger,
-  logger
+  logger,
+  initLogger
 }
