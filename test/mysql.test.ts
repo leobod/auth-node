@@ -1,5 +1,5 @@
 
-import { pool } from "../src/common/mysql";
+import { pool } from "../src/common/RDB";
 
 pool.getConnection(function(err, connection) {
   if (err) throw err
