@@ -2,14 +2,14 @@
 import path from "path";
 import koaBody from "koa-body";
 /* 使用mount与static,挂载虚拟路径给指定的静态文件 */
-import mount from 'koa-mount'
-import static_file from 'koa-static'
+import mount from 'koa-mount';
+import static_file from 'koa-static';
 
 const initBody = function (app) {
   app.use(koaBody({
     multipart: true,
     formidable: {
-      maxFileSize: 200*1024*1024, // 设置上传文件大小最大限制，默认2M
+      maxFileSize: 200 * 1024 * 1024, // 设置上传文件大小最大限制，默认2M
       keepExtensions: true, // 保持后缀名
     }
   }));
@@ -27,7 +27,7 @@ const initBody = function (app) {
       )
     )
   );
-}
+};
 
 export {
   initBody
