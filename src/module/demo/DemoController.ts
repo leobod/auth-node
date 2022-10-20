@@ -91,6 +91,15 @@ demoController
     ctx.response.body = form
   })
 
+demoController
+  .get('/not_found', async (ctx, next) => {
+    ctx.status = 404;
+    ctx.body = 'not_found'
+  })
+  .get('/error', async (ctx, next) => {
+    throw new Error('手动触发异常')
+  })
+
 export {
   demoController
 }

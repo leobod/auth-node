@@ -7,6 +7,8 @@ const app = new Koa();
 import {accessLogger } from "./middleware/log4j";
 app.use(accessLogger())
 
+import { cors } from "./middleware/Cors";
+app.use(cors)
 
 import koaBody from "koa-body";
 app.use(koaBody({
@@ -17,23 +19,9 @@ app.use(koaBody({
     }
 }));
 
-// 配置跨域
-app.use(async (ctx, next) => {
-    ctx.set('Access-Control-Allow-Origin', '*');
-    ctx.set('Access-Control-Allow-Headers', 'Content-Type, Content-Length, Authorization, Accept, X-Requested-With');
-    ctx.set('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
-    if(ctx.method=='OPTIONS'){
-        ctx.body = 200;
-    }else{
-        await next()
-    }
-})
-
-
 /* 使用mount与static,挂载虚拟路径给指定的静态文件 */
 import mount from 'koa-mount'
 import static_file from 'koa-static'
-
 app.use(
   mount(
     '/static',
@@ -47,6 +35,9 @@ app.use(
     )
   )
 );
+
+import {initErrorHandler} from "./middleware/ErrorHandler";
+initErrorHandler(app);
 
 /* 加载自定义路由 */
 import router_app from './routes'
