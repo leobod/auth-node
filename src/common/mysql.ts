@@ -15,7 +15,7 @@ const pool = mysql.createPool(mysql_config);
 
 
 
-// pool.getConnections((err, connection) => {
+// pool.getConnection(function(err, connection) {
 //   if (err) throw err
 //   connection.query('SELECT * FROM customer_login', function (error, results, fields) {
 //     connection.release()
@@ -23,6 +23,7 @@ const pool = mysql.createPool(mysql_config);
 //     const res = results.map(v => Object.assign({}, v));
 //     console.log('The origin_data is: ', results);
 //     console.log('The obj_data is: ', res)
+//     pool.end()
 //   });
 // })
 
