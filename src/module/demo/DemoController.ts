@@ -127,6 +127,18 @@ demoController
     logger.info('访问了一次log')
   })
 
+/**
+ * 环境
+ */
+demoController
+  .get('/env', async (ctx, next) => {
+    if (process.env.NODE_ENV === 'production') {
+      ctx.body = 'production'
+    } else {
+      ctx.body = 'development'
+    }
+  })
+
 export {
   demoController
 }
