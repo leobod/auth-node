@@ -1,5 +1,5 @@
 import {TableColumnDSL} from "../type/Table";
-import {toCamelCase} from "../utils";
+import {toCamelCase, toPascalCase} from "../utils";
 
 /**
  * 数据库类型变JS类型定义
@@ -62,7 +62,10 @@ const getNewLine = function (content: string): string {
 const getModelDefine = function (modelName: string, content: string):string {
   const preText = getNewLine(`interface ${modelName} {`);
   const postText = getNewLine(`}`);
-  return preText + content + postText;
+
+  const blankNewLine = getNewLine('');
+  const expText = getNewLine(`export { ${modelName} }`);
+  return preText + content + postText + blankNewLine + expText;
 }
 
 /**
@@ -71,7 +74,7 @@ const getModelDefine = function (modelName: string, content: string):string {
  * @param tableColumnList
  */
 const transformTableToModel = function (tableName: string, tableColumnList: Array<TableColumnDSL>): string {
-  const camelCaseTableName = toCamelCase(tableName);
+  const pascalCaseTableName = toPascalCase(tableName);
   if (tableColumnList && tableColumnList.length > 0) {
     const tableColumnFieldList = []
     for (const tableColumn of tableColumnList) {
@@ -84,9 +87,28 @@ const transformTableToModel = function (tableName: string, tableColumnList: Arra
         tableColumnFieldList.push(getNewLine('\t' + fieldName + ': ' + fieldType + ','));
       }
     }
-    return getModelDefine(camelCaseTableName, tableColumnFieldList.join(''));
+    return getModelDefine(pascalCaseTableName, tableColumnFieldList.join(''));
   }
 }
+
+/**
+ * 生成统一的model出口
+ * @param tableNameList
+ */
+const getExportTableModel = function (tableNameList: Array<string>) {
+  const pascalCaseTableNameList = tableNameList.map(name => toPascalCase(name));
+  const tableModelList = []
+  for (const name of pascalCaseTableNameList) {
+    tableModelList.push(getNewLine(`import { ${name} } from "./${name}"`));
+  }
+  tableModelList.push(getNewLine(''));
+  tableModelList.push(getNewLine(`export {`));
+  for (const name of pascalCaseTableNameList) {
+    tableModelList.push(getNewLine(`\t${name},`));
+  }
+  tableModelList.push(getNewLine(`}`));
+  return tableModelList.join('');
+};
 
 export {
   getFieldTypeByModel,
@@ -94,5 +116,6 @@ export {
   getFieldIsOptional,
   getNewLine,
   getModelDefine,
-  transformTableToModel
+  transformTableToModel,
+  getExportTableModel
 }

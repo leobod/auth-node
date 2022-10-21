@@ -1,4 +1,4 @@
-interface customerInf {
+interface CustomerInf {
 	customerInfId: number,
 	customerId: number,
 	customerName: string,
@@ -14,3 +14,5 @@ interface customerInf {
 	userMoney?: number,
 	modifiedTime?: Date,
 }
+
+export { CustomerInf }

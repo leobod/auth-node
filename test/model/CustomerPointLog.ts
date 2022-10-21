@@ -1,4 +1,4 @@
-interface customerPointLog {
+interface CustomerPointLog {
 	pointId: number,
 	customerId: number,
 	source: number,
@@ -6,3 +6,5 @@ interface customerPointLog {
 	changePoint?: number,
 	createTime: Date,
 }
+
+export { CustomerPointLog }

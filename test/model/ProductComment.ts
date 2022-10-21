@@ -1,4 +1,4 @@
-interface productComment {
+interface ProductComment {
 	commentId: number,
 	productId: number,
 	orderId: number,
@@ -9,3 +9,5 @@ interface productComment {
 	auditTime: Date,
 	modifiedTime?: Date,
 }
+
+export { ProductComment }

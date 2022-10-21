@@ -1,4 +1,4 @@
-interface warehouseInfo {
+interface WarehouseInfo {
 	wId: number,
 	warehouseSn: string,
 	warehoustName: string,
@@ -11,3 +11,5 @@ interface warehouseInfo {
 	warehouseStatus?: number,
 	modifiedTime?: Date,
 }
+
+export { WarehouseInfo }

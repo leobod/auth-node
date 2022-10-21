@@ -1,4 +1,4 @@
-interface shippingInfo {
+interface ShippingInfo {
 	shipId: number,
 	shipName: string,
 	shipContact: string,
@@ -6,3 +6,5 @@ interface shippingInfo {
 	price?: number,
 	modifiedTime?: Date,
 }
+
+export { ShippingInfo }

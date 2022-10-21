@@ -1,4 +1,4 @@
-interface orderMaster {
+interface OrderMaster {
 	orderId: number,
 	orderSn: number,
 	customerId: number,
@@ -23,3 +23,5 @@ interface orderMaster {
 	invoiceTime?: string,
 	modifiedTime?: Date,
 }
+
+export { OrderMaster }

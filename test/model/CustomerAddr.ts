@@ -1,4 +1,4 @@
-interface customerAddr {
+interface CustomerAddr {
 	customerAddrId: number,
 	customerId: number,
 	zip: number,
@@ -9,3 +9,5 @@ interface customerAddr {
 	isDefault: number,
 	modifiedTime?: Date,
 }
+
+export { CustomerAddr }

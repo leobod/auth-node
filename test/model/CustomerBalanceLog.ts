@@ -1,4 +1,4 @@
-interface customerBalanceLog {
+interface CustomerBalanceLog {
 	balanceId: number,
 	customerId: number,
 	source?: number,
@@ -6,3 +6,5 @@ interface customerBalanceLog {
 	createTime?: Date,
 	amount?: number,
 }
+
+export { CustomerBalanceLog }

@@ -26,8 +26,25 @@ const getPureConnectionFromPool = function () {
 /**
  * 从pool中获取连接对象
  */
-const getConnectionFromPool = function () {
-
+const getConnectionFromPool = function (sql) {
+  return new Promise((resolve, reject) => {
+    pool.getConnection((err, connection) => {
+      if (err) {
+        logger.error('getConnectionFromPool获取连接失败');
+        reject(err);
+      } else {
+        connection.query(sql, (err, results, fields) => {
+          if (err) {
+            logger.error('getConnectionFromPool,执行语句报错');
+            reject(err);
+          } else {
+            resolve(results)
+            connection.release();
+          }
+        })
+      }
+    })
+  })
 }
 
 /**

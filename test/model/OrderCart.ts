@@ -1,4 +1,4 @@
-interface orderCart {
+interface OrderCart {
 	cartId: number,
 	customerId: number,
 	productId: number,
@@ -7,3 +7,5 @@ interface orderCart {
 	addTime?: Date,
 	modifiedTime?: Date,
 }
+
+export { OrderCart }

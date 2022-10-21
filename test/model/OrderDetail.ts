@@ -1,4 +1,4 @@
-interface orderDetail {
+interface OrderDetail {
 	orderDetailId: number,
 	orderId: number,
 	productId: number,
@@ -11,3 +11,5 @@ interface orderDetail {
 	wId: number,
 	modifiedTime?: Date,
 }
+
+export { OrderDetail }

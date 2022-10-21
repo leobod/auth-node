@@ -1,4 +1,4 @@
-interface supplierInfo {
+interface SupplierInfo {
 	supplierId: number,
 	supplierCode: string,
 	supplierName: string,
@@ -11,3 +11,5 @@ interface supplierInfo {
 	supplierStatus?: number,
 	modifiedTime?: Date,
 }
+
+export { SupplierInfo }

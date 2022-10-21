@@ -1,4 +1,4 @@
-interface productPicInfo {
+interface ProductPicInfo {
 	productPicId: number,
 	productId: number,
 	picDesc?: string,
@@ -8,3 +8,5 @@ interface productPicInfo {
 	picStatus?: number,
 	modifiedTime?: Date,
 }
+
+export { ProductPicInfo }

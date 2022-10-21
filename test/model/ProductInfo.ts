@@ -1,4 +1,4 @@
-interface productInfo {
+interface ProductInfo {
 	productId: number,
 	productCore: string,
 	productName: string,
@@ -23,3 +23,5 @@ interface productInfo {
 	indate?: Date,
 	modifiedTime?: Date,
 }
+
+export { ProductInfo }

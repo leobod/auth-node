@@ -1,4 +1,4 @@
-interface brandInfo {
+interface BrandInfo {
 	brandId: number,
 	brandName: string,
 	telephone: string,
@@ -9,3 +9,5 @@ interface brandInfo {
 	brandOrder?: number,
 	modifiedTime?: Date,
 }
+
+export { BrandInfo }

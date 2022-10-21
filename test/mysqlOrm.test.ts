@@ -1,6 +1,6 @@
 import fs from "fs";
 import {getPureConnectionFromPool} from "../src/common/RDB";
-import { transformTableToModel } from '../src/tools/TableToTsModel';
+import { transformTableToModel, getExportTableModel } from '../src/tools/TableToTsModel';
 import {toCamelCase} from "../src/utils";
 
 let connection = null
@@ -19,6 +19,14 @@ const getTables = function () {
         for (const tableName of tableList) {
           getTableModel(tableName);
         }
+        const tableModelIndexContent = getExportTableModel(tableList);
+        fs.writeFile(`./test/model/index.ts`, tableModelIndexContent, function (err) {
+          if (err) {
+            console.log(`err`);
+          } else {
+            console.log(`success`);
+          }
+        })
       })
     })
     .catch((err) => {

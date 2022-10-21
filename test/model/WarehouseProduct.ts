@@ -1,4 +1,4 @@
-interface warehouseProduct {
+interface WarehouseProduct {
 	wpId: number,
 	productId: number,
 	wId: number,
@@ -8,3 +8,5 @@ interface warehouseProduct {
 	averageCost?: number,
 	modifiedTime?: Date,
 }
+
+export { WarehouseProduct }

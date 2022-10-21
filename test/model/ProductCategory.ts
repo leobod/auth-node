@@ -1,4 +1,4 @@
-interface productCategory {
+interface ProductCategory {
 	categoryId: number,
 	categoryName: string,
 	categoryCode: string,
@@ -7,3 +7,5 @@ interface productCategory {
 	categoryStatus?: number,
 	modifiedTime?: Date,
 }
+
+export { ProductCategory }
