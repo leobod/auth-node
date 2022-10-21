@@ -1,4 +1,4 @@
-const { TsDefine } = require('../src/tools/TsDefine')
+const { TableToTsModel } = require('../src/tools/TableToTsModel')
 
 const sum = function (a, b) {
   return a + b;
@@ -9,7 +9,7 @@ test('demo', () => {
 });
 
 test('TsDefine', () => {
-  const tsDefine = new TsDefine();
+  const tsDefine = new TableToTsModel();
   console.log(tsDefine.underlineToCamel('customer_login'));
   expect(tsDefine.underlineToCamel('customer_login')).toBe('CustomerLogin');
 })

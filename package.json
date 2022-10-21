@@ -9,7 +9,7 @@
     "clean:prod": "rimraf ./dist",
     "start:prod": "rimraf ./dist && tsc && node ./dist/src/server.js ",
     "test": "jest",
-    "run:mysql": "ts-node ./test/mysql.test.ts",
+    "run:mysqlOrm": "ts-node test/mysqlOrm.test.ts",
     "run:redirect": "ts-node ./test/redirect.test.ts",
     "run:wss": "ts-node ./src/common/WSS.ts"
   },
