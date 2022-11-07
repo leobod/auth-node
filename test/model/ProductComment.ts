@@ -1,5 +1,5 @@
 interface ProductComment {
-	commentId: number,
+	commentId?: number,
 	productId: number,
 	orderId: number,
 	customerId: number,

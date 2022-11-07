@@ -1,5 +1,5 @@
 interface ProductPicInfo {
-	productPicId: number,
+	productPicId?: number,
 	productId: number,
 	picDesc?: string,
 	picUrl: string,

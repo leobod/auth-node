@@ -1,5 +1,5 @@
 interface WarehouseProduct {
-	wpId: number,
+	wpId?: number,
 	productId: number,
 	wId: number,
 	currentCnt?: number,

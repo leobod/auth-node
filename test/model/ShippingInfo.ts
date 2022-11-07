@@ -1,5 +1,5 @@
 interface ShippingInfo {
-	shipId: number,
+	shipId?: number,
 	shipName: string,
 	shipContact: string,
 	telephone: string,

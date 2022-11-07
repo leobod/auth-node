@@ -1,5 +1,5 @@
 interface OrderDetail {
-	orderDetailId: number,
+	orderDetailId?: number,
 	orderId: number,
 	productId: number,
 	productName: string,

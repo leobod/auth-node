@@ -1,7 +1,7 @@
 import fs from "fs";
 import {getPureConnectionFromPool} from "../src/common/RDB";
 import { transformTableToModel, getExportTableModel } from '../src/tools/TableToTsModel';
-import {toCamelCase} from "../src/utils";
+import {toCamelCase, toPascalCase} from "../src/utils";
 
 let connection = null
 let tableList = []
@@ -39,7 +39,8 @@ const getTableModel = function (tableName) {
   connection.query(`DESCRIBE ${tableName}`, (err, results, fields) => {
     if (err) throw err;
     const tableColumnList = results.map(item => Object.assign({}, item));
-    const camelTableName = toCamelCase(tableName);
+    // console.log(tableColumnList)
+    const camelTableName = toPascalCase(tableName);
     const content = transformTableToModel(tableName, tableColumnList);
     fs.writeFile(`./test/model/${camelTableName}.ts`, content, function (err) {
       if (err) {

@@ -1,5 +1,5 @@
 interface BrandInfo {
-	brandId: number,
+	brandId?: number,
 	brandName: string,
 	telephone: string,
 	brandWeb?: string,

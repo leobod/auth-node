@@ -1,5 +1,5 @@
 interface CustomerLogin {
-	customerId: number,
+	customerId?: number,
 	loginName: string,
 	password: string,
 	userStats?: number,

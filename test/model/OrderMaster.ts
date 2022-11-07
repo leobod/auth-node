@@ -1,5 +1,5 @@
 interface OrderMaster {
-	orderId: number,
+	orderId?: number,
 	orderSn: number,
 	customerId: number,
 	shippingUser: string,

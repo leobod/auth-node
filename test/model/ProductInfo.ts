@@ -1,5 +1,5 @@
 interface ProductInfo {
-	productId: number,
+	productId?: number,
 	productCore: string,
 	productName: string,
 	barCode: string,

@@ -1,5 +1,5 @@
 interface OrderCart {
-	cartId: number,
+	cartId?: number,
 	customerId: number,
 	productId: number,
 	productAmount: number,

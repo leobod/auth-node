@@ -1,5 +1,5 @@
 interface WarehouseInfo {
-	wId: number,
+	wId?: number,
 	warehouseSn: string,
 	warehoustName: string,
 	warehousePhone: string,

@@ -1,5 +1,5 @@
 interface ProductCategory {
-	categoryId: number,
+	categoryId?: number,
 	categoryName: string,
 	categoryCode: string,
 	parentId?: number,

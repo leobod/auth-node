@@ -39,8 +39,10 @@ const getFieldTypeByModelType = function (type: string): string {
  */
 const getFieldIsOptional = function (fieldModel: TableColumnDSL): boolean {
   if (fieldModel) {
-    if (fieldModel.Null === 'NO' && fieldModel.Default === null) {
-      return false
+    if (fieldModel.Null === 'NO' &&
+      fieldModel.Default === null &&
+      fieldModel.Extra !== 'auto_increment') {
+      return false;
     }
   }
   return true

@@ -1,5 +1,5 @@
 interface SupplierInfo {
-	supplierId: number,
+	supplierId?: number,
 	supplierCode: string,
 	supplierName: string,
 	supplierType: number,
